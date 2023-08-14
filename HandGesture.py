@@ -153,38 +153,38 @@ class HandGesture():
         if hand_sign_id == 0 or hand_sign_id == 1: # UPWARD FIST OR NORMAL FIST
             if hand_place < 0.33: # LEFT SCREEN FIST
                 print('Car is moving left')
-                rtspSocket.send('9'.encode())
+                rtspSocket.send('9.'.encode())
                 return 9 # diagonal left
             elif hand_place > 0.66: # RIGHT SCREEN FIST
                 print('Car is moving right')
-                rtspSocket.send('10'.encode())
+                rtspSocket.send('10.'.encode())
                 return 10 # diagonal right
             else:
                 if hand_sign_id == 0: # MIDDLE SCREEN UPWARD FIST
                     print('Car is moving forward as normal speed')
-                    rtspSocket.send('1'.encode())
+                    rtspSocket.send('1.'.encode())
                     return 1 # normal forward
                 else: # MIDDLE SCREEN NORMAL FIST
                     print('Car is moving forward as high speed')
-                    rtspSocket.send('7'.encode())
+                    rtspSocket.send('7.'.encode())
                     return 7 # fast forward
         elif hand_sign_id == 2: # REVERSE FIST
             print('Car is moving backward')
-            rtspSocket.send('2'.encode())
+            rtspSocket.send('2.'.encode())
             return 2 # backward
         elif hand_sign_id == 3: # PALM
             print('Car is stopping')
-            rtspSocket.send('0'.encode())
+            rtspSocket.send('0.'.encode())
             return 0 # stop
         elif hand_sign_id == 4: # REVERSE PALM
-            rtspSocket.send('8'.encode())
+            rtspSocket.send('8.'.encode())
             return 8 # do nothing
         elif hand_sign_id == 5: # THUMB LEFT
-            rtspSocket.send('4'.encode())
+            rtspSocket.send('4.'.encode())
             print('Car is moving left')
             return 4 # go left
         elif hand_sign_id == 6: # THUMB RIGHT
-            rtspSocket.send('3'.encode())
+            rtspSocket.send('3.'.encode())
             print('Car is moving right')
             return 3 # go right
         elif hand_sign_id == 7: # OK
@@ -194,12 +194,12 @@ class HandGesture():
             return 8
         elif hand_sign_id == 8: # INDEX UP
             if hand_tip < 0.5:
-                rtspSocket.send('6'.encode())
+                rtspSocket.send('6.'.encode())
                 print('Car is spinning left')
                 return 6 # spin left
             else:
                 print('Car is spinning right')
-                rtspSocket.send('5'.encode())
+                rtspSocket.send('5.'.encode())
                 return 5 # spin right
             #if (self.previous_action_id != 12): # if change light first time
             #    self.light_mode = not self.light_mode
